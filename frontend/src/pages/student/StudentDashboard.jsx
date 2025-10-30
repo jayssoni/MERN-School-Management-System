@@ -20,7 +20,9 @@ import StudentComplain from './StudentComplain';
 import Logout from '../Logout'
 import AccountMenu from '../../components/AccountMenu';
 import { AppBar, Drawer } from '../../components/styles';
-
+import StudentFeePayment from './StudentFeePayment';
+import HostelAllocation from './StudentHostel';
+import ExamMarks from './StudentExamMarks';
 const StudentDashboard = () => {
     const [open, setOpen] = useState(true);
     const toggleDrawer = () => {
@@ -80,6 +82,18 @@ const StudentDashboard = () => {
                         {/* Attendance disabled */}
                         {/* <Route path="/Student/attendance" element={<ViewStdAttendance />} /> */}
                         <Route path="/Student/complain" element={<StudentComplain />} />
+
+                           {/* Fee Management */}
+                        <Route path="/Student/fees" element={<StudentFeePayment />} />
+                        {/* <Route path="/Admin/fees/add" element={<AddFee />} /> */}
+
+                        {/* Hostel */}
+                        <Route path="/Student/hostels" element={<HostelAllocation />} />
+                        {/* <Route path="/Admin/hostels/add" element={<AddHostel />} /> */}
+
+                        {/* Exams */}
+                        <Route path="/Student/exams" element={<ExamMarks />} />
+                        {/* <Route path="/Admin/exams/add" element={<AddExam />} /> */}
 
                         <Route path="/logout" element={<Logout />} />
                     </Routes>

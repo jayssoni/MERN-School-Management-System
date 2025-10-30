@@ -91,6 +91,10 @@ router.put("/TeacherSubject", updateTeacherSubject)
 
 // Notice
 
+
+
+
+
 router.post('/NoticeCreate', noticeCreate);
 
 router.get('/NoticeList/:id', noticeList);
@@ -186,4 +190,15 @@ router.put('/AddSchedule/:id', addSchedule);
 router.delete('/Exam/:id', deleteExam);
 router.delete('/Exams/:id', deleteExams);
 
+router.get('/FeePending/:studentId',)
+
+router.post("/Fee", feeCreate);
+router.get("/FeeList/:id", feeList);
+router.get("/StudentFees/:id", getStudentFees);
+router.get("/Fee/:id", getFeeDetail);
+router.put("/Fee/:id", updateFee);
+router.post("/FeePay/:id", payFee);
+router.delete("/Fee/:id", deleteFee);
+router.delete("/Fees/:id", deleteFees);
+router.get("/fees/:studentId", getStudentFees);
 module.exports = router;

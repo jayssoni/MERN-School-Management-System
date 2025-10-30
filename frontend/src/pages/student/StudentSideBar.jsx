@@ -8,8 +8,11 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
 import AssignmentIcon from '@mui/icons-material/Assignment';
-
-// Reuse the modernized styles like Admin sidebar
+import SchoolIcon from '@mui/icons-material/School';
+import PaymentIcon from '@mui/icons-material/Payment';
+import HotelIcon from '@mui/icons-material/Hotel';
+import QuizIcon from '@mui/icons-material/Quiz';
+// Reuse the modernized styles like Student sidebar
 const listItemStyles = {
     mb: 0.5,
     mx: 1,
@@ -19,7 +22,12 @@ const listItemStyles = {
         transform: 'translateX(4px)',
     }
 };
-
+const managementItems = [
+    // { text: 'Admissions', to: '/Student/admissions', icon: <SchoolIcon /> },
+    { text: 'Fee Management', to: '/Student/fees', icon: <PaymentIcon /> },
+    { text: 'Hostel', to: '/Student/hostels', icon: <HotelIcon /> },
+    { text: 'Exams', to: '/Student/exams', icon: <QuizIcon /> },
+];
 const mainItems = [
     { text: 'Home', to: '/', icon: <HomeIcon />, activePaths: ['/', '/Student/dashboard'] },
     { text: 'Subjects', to: '/Student/subjects', icon: <AssignmentIcon /> },
@@ -91,6 +99,12 @@ const StudentSideBar = () => {
 
             <Divider sx={{ my: 2, mx: 2, backgroundColor: '#e5e7eb' }} />
 
+            <React.Fragment>
+                <ListHeader text="Management" />
+                {managementItems.map((item) => <NavItem key={item.text} item={item} />)}
+            </React.Fragment>
+                  <Divider sx={{ my: 2, mx: 2, backgroundColor: '#e5e7eb' }} />
+                
             <React.Fragment>
                 <ListHeader text="User" />
                 {userItems.map((item) => <NavItem key={item.text} item={item} />)}

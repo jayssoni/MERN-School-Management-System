@@ -91,6 +91,28 @@ const getStudentDetail = async (req, res) => {
     }
 }
 
+ const getStudentFees = async (req, res) => {
+  try {
+    const { studentId } = req.params;
+
+    // Find all fees belonging to this student
+    const fees = await Fee.find({ student: studentId })
+      .populate("student", "name email")
+      .populate("sclassName", "sclassName")
+      .populate("school", "schoolName");
+
+    if (!fees || fees.length === 0) {
+      return res.status(200).json([]);
+    }
+
+    res.status(200).json(fees);
+  } catch (error) {
+    console.error("Error fetching fees:", error);
+    res.status(500).json({ message: "Server error fetching fees" });
+  }
+};
+
+
 const deleteStudent = async (req, res) => {
     try {
         const result = await Student.findByIdAndDelete(req.params.id)
